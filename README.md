@@ -31,8 +31,8 @@ mvn -Dbrowser=chrome -Denvironment=stage -Dsurefire.suiteXmlFiles=src\test\resou
 
 mvn -Dbrowser=chrome -Denvironment=stage -Dsurefire.suiteXmlFiles=src\test\resources\testng-nosmoking2-2.xml clean test
 
-mvn -Dbrowser=chrome -Denvironment=dev -Dsurefire.suiteXmlFiles=src\test\resources\testng-nosmoking3.xml clean test
+mvn -Dbrowser=chrome -Denvironment=qa -Dsurefire.suiteXmlFiles=src\test\resources\testng-nosmoking3.xml clean test
 
-mvn -Dbrowser=chrome -Denvironment=dev -Dsurefire.suiteXmlFiles=src\test\resources\testng-nosmoking4.xml clean test 
+mvn -Dbrowser=chrome -Denvironment=qa -Dsurefire.suiteXmlFiles=src\test\resources\testng-nosmoking4.xml clean test 
 
 mvn -Dbrowser=chrome -Denvironment=qa -Dsurefire.suiteXmlFiles=src\test\resources\testng-nosmoking5.xml clean test
