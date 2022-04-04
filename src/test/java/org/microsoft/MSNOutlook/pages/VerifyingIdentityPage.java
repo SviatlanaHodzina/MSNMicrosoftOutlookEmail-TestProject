@@ -36,7 +36,7 @@ public class VerifyingIdentityPage extends AbstractPage {
     @FindBy(how = How.XPATH, using = "//a[@id='idA_IL_ForgotPassword0']")
     private WebElement resetPasswordLinkElement;
 
-    public VerifyingIdentityPage (){
+    public VerifyingIdentityPage() {
         super();
         PageFactory.initElements(this.driver, this);
     }
@@ -117,7 +117,8 @@ public class VerifyingIdentityPage extends AbstractPage {
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(GET_CODE_BUTTON_ELEMENT_XPATH))).click();
         return new ResetPasswordPage();
     }
-     public String codeToResetPassword = "";// to check in perspective
+
+    public String codeToResetPassword = "";// to check in perspective
 
     public ResetPasswordPage verifyEmailToGetCode() {
         selectEmailOptionMethod();
