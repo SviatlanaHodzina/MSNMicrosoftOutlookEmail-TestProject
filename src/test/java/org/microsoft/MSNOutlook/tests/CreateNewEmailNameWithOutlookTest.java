@@ -11,7 +11,7 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class CreateNewEmailNameWithOutlookTest extends RequiredConditions {
 
-//    The test does work: passed 30 March 2022
+    //    The test does work: passed 30 March 2022
     @Test(description = "Verifies a possibility of a new email's name creation with domain @outlook.")
     public void verifyThatOneCanCreateANewEmailNameWithOutlookDomain() {
         MSAccount account = AccountCompiler.withCredentialFromProperty();
@@ -32,6 +32,6 @@ public class CreateNewEmailNameWithOutlookTest extends RequiredConditions {
         String alertMessageIfTestFails = "WebDriver couldn't get the text attribute of the Element " +
                 "or Created Email Name does not match the one displayed on the top of Password Page";
 
-        assertTrue(alertMessageIfTestFails,availableEmailNameAccountOutlookIsDisplayed);
+        assertTrue(alertMessageIfTestFails, availableEmailNameAccountOutlookIsDisplayed);
     }
 }

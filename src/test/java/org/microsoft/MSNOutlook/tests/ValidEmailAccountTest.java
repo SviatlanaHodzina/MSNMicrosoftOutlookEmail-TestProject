@@ -7,18 +7,23 @@ import org.microsoft.MSNOutlook.service.AccountCompiler;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 public class ValidEmailAccountTest extends RequiredConditions {
 
-// The test does work, tested on existed email: 29 March 2022
+    // The test with properties from ResourceBundle does work, tested on existed email: 02 April 2022
     @Test(description = "Verifies if the input existing email account is valid")
     public void verifyThatTheInputEmailAccountIsValid() {
+
         MSAccount account = AccountCompiler.withCredentialFromProperty();
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("message", Locale.US);
         new OutlookLiveComPage()
                 .openPage()
                 .signIn();
         String actualMessageForValidEmailAccount = new LogInPage().signInWithExistingEmail(account)
-                .getEnterPasswordMessage();
-        String expectedMessageForValidEmailAccount = "Enter password";// include it in lang locale resources bundle
+                .getTitleEnterPasswordMessage();
+        String expectedMessageForValidEmailAccount = resourceBundle.getString("Enter password");
 
         Assert.assertEquals(actualMessageForValidEmailAccount, expectedMessageForValidEmailAccount);
     }

@@ -5,14 +5,16 @@ import org.microsoft.MSNOutlook.util.TestListener;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 
 @Listeners({TestListener.class})
 public class RequiredConditions {
     public static WebDriver driver;
 
     @BeforeMethod()
-    public void setUp() {
-        driver = WebDriverConnector.getDriver();
+    @Parameters("browser")
+    public void setUp(String browser) {
+        driver = WebDriverConnector.getDriver(browser);
     }
 
 //    @AfterMethod(alwaysRun = true)
