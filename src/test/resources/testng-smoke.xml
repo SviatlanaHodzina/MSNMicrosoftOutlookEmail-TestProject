@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="smoke" verbose="1">
+    <test name="LogInPageOpeningTest">
+        <classes>
+            <class name="org.microsoft.MSNOutlook.tests.LogInPageOpeningTest"/>
+        </classes>
+    </test>
+</suite>

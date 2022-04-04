@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="CrossBrowserNosmoking4" verbose="1">
+    <test name="ChromeCreatePasswordForNewEmailAccountTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="org.microsoft.MSNOutlook.tests.CreatePasswordForNewEmailAccountTest"/>
+        </classes>
+    </test>
+    <test name="FirefoxCreatePasswordForNewEmailAccountTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="org.microsoft.MSNOutlook.tests.CreatePasswordForNewEmailAccountTest"/>
+        </classes>
+    </test>
+    <test name="MsedgeCreatePasswordForNewEmailAccountTest">
+        <parameter name="browser" value="msedge"/>
+        <classes>
+            <class name="org.microsoft.MSNOutlook.tests.CreatePasswordForNewEmailAccountTest"/>
+        </classes>
+    </test>
+</suite>
