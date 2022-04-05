@@ -11,7 +11,7 @@ public abstract class AbstractPage {
     protected abstract AbstractPage openPage();
 
     protected AbstractPage(){
-        driver = WebDriverConnector.getDriver();
+        driver = WebDriverConnector.getDriver("browser");
         PageFactory.initElements(driver,this);
     }
 }

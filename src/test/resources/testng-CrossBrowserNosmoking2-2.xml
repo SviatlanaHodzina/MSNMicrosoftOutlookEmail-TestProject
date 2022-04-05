@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="CrossBrowserNosmoking2-2" verbose="1">
+    <test name="ChromeNotValidInputEmailAccountAlertTextTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="org.microsoft.MSNOutlook.tests.NotValidInputEmailAccountAlertTextTest"/>
+        </classes>
+    </test>
+    <test name="FirefoxNotValidInputEmailAccountAlertTextTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="org.microsoft.MSNOutlook.tests.NotValidInputEmailAccountAlertTextTest"/>
+        </classes>
+    </test>
+    <test name="MsedgeNotValidInputEmailAccountAlertTextTest">
+        <parameter name="browser" value="msedge"/>
+        <classes>
+            <class name="org.microsoft.MSNOutlook.tests.NotValidInputEmailAccountAlertTextTest"/>
+        </classes>
+    </test>
+</suite>

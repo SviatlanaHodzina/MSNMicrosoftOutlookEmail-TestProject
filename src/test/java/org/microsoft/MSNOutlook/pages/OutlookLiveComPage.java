@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import static org.openqa.selenium.By.xpath;
 
@@ -21,7 +23,7 @@ public class OutlookLiveComPage extends AbstractPage {
     public final String MAIN_PAGE_CONTENT_ELEMENT_XPATH = "//html/body/header[@class='masthead']";
     public final String SIGN_IN_BUTTON_ELEMENT_XPATH = "//div[@class='masthead-shell']//a[contains(text(),'%s')]";
 
-    public String signIn = "Sign in";//move to resource bundle message_lang.properties
+    String signInButton = "Sign in";
 
     public OutlookLiveComPage (){
         super();
@@ -40,7 +42,7 @@ public class OutlookLiveComPage extends AbstractPage {
     public LogInPage signIn(){
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.elementToBeClickable
-                        (xpath(String.format(SIGN_IN_BUTTON_ELEMENT_XPATH, signIn)))).click();
+                        (xpath(String.format(SIGN_IN_BUTTON_ELEMENT_XPATH, signInButton)))).click();
         logger.info("Sign in. Enter your Email, phone or Skype");
         return new LogInPage();
     }

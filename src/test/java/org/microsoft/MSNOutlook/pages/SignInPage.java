@@ -19,25 +19,21 @@ import static org.openqa.selenium.By.xpath;
 public class SignInPage extends AbstractPage {
     Logger logger = LogManager.getRootLogger();
 
+    private final String TITLE_SIGN_IN_PAGE_ELEMENT_XPATH = "//div[@data-viewid='1']//div[@role='heading']";
+    private final String TITLE_ENTER_PASSWORD_ELEMENT_XPATH = "//div[@data-viewid='2']//div[@role='heading']";
     private final String VERIFY_YOUR_IDENTITY_MESSAGE_ELEMENT_XPATH = "//div[@id ='idDiv_SAOTCS_Title']";
     private final String PASSWORD_PLACEHOLDER_ELEMENT_XPATH = "//input[@name='passwd']";
     private final String PASSWORD_ERROR_MESSAGE_ELEMENT_XPATH = "//div[@id ='passwordError']";
-    private final String USER_NAME_ERROR_ELEMENT_XPATH = "//div[@id='usernameError']";
-    private final String MICROSOFT_ACCOUNT_DOES_NOT_EXIST_ALERT_ELEMENT_XPATH = "//div[@role='alert']";
     private final String DISPLAYED_IDENTITY_ELEMENT_XPATH = "//div[@id ='displayName']";
     private final String EMAIL_DISPLAYED_WITH_VALID_PASSWORD_ELEMENT_XPATH = "//div[@class='table-row']";// move to the appropriate Page class
     private final String SHOW_MORE_VERIFICATION_METHODS_LINK_ELEMENT_XPATH = "//a[@id='idA_SAOTCS_ShowMoreProofs']";// move to the appropriate Page class
     private final String FORGOT_PASSWORD_LINK_ELEMENT_XPATH = "//a[@id='idA_PWD_ForgotPassword']";// move to the appropriate Page class
-    private final String ENTER_PASSWORD_ELEMENT_XPATH = "//div[@role='heading']";
     private final String TITLE_TEXT_ELEMENT_XPATH = "//div[contains(@role,'heading') and contains(text(),'')]";
-    private final String USERNAME_ERROR_ELEMENT_XPATH = "//div[@id='usernameError']";
-
-    String enterPasswordMessage = driver.findElement(By.xpath(ENTER_PASSWORD_ELEMENT_XPATH)).getAttribute("textContent");
 
     @FindBy(how = How.XPATH, using = VERIFY_YOUR_IDENTITY_MESSAGE_ELEMENT_XPATH)
     private WebElement verifyYourIdentityElement;
 
-    @FindBy(how = How.XPATH, using = PASSWORD_ERROR_MESSAGE_ELEMENT_XPATH )
+    @FindBy(how = How.XPATH, using = PASSWORD_ERROR_MESSAGE_ELEMENT_XPATH)
     private WebElement passwordErrorMessageElement;
 
     @FindBy(how = How.XPATH, using = FORGOT_PASSWORD_LINK_ELEMENT_XPATH)// move to the appropriate Page class
@@ -46,7 +42,7 @@ public class SignInPage extends AbstractPage {
     @FindBy(how = How.XPATH, using = "//input[@id='idSIButton9']")
     private WebElement signInButtonElement;
 
-    public SignInPage (){
+    public SignInPage() {
         super();
         PageFactory.initElements(this.driver, this);
     }
@@ -56,43 +52,25 @@ public class SignInPage extends AbstractPage {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.invisibilityOfElementLocated(xpath(TITLE_TEXT_ELEMENT_XPATH)));
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
-                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ENTER_PASSWORD_ELEMENT_XPATH)));
-        logger.info(enterPasswordMessage);
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(TITLE_ENTER_PASSWORD_ELEMENT_XPATH)));
+        logger.info("Enter password");
         return this;
     }
 
-    public String getTitleTextMessageInSignInBox(){
-        return driver.findElement(By.xpath(TITLE_TEXT_ELEMENT_XPATH)).getText();
-    }
-
-    public String getNotValidEmailAccount() {
-        return driver.findElement(By.xpath(USERNAME_ERROR_ELEMENT_XPATH)).getAttribute("textContent");
-    }
-
-//    in Accessibility tree it says: "ignored". Thus, it is not surefire method for checking in test case
     public String getDisplayedIdentityName() {
         return driver.findElement(By.xpath(DISPLAYED_IDENTITY_ELEMENT_XPATH)).getAttribute("title");
     }
 
-//    This is more reliable method for checking valid email test case
-    public String getEnterPasswordMessage() {
-        return driver.findElement(By.xpath(ENTER_PASSWORD_ELEMENT_XPATH)).getAttribute("textContent");
-    }
-
-// alternative method for checking displayed alert message due to randomly "ignored" status in Accessibility
-    public boolean alertMSAccountMessageIsDisplayed() {
-        return driver.findElement(By.xpath(MICROSOFT_ACCOUNT_DOES_NOT_EXIST_ALERT_ELEMENT_XPATH)).isDisplayed();
-    }
-
-//    this method for checking displayed alert message may have randomly "ignored" status in Accessibility
-    public boolean usernameErrorMessageIsDisplayed() {
-        return driver.findElement(By.xpath(USER_NAME_ERROR_ELEMENT_XPATH)).isDisplayed();
+    public String getTitleEnterPasswordMessage() {
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.invisibilityOfElementLocated(xpath(TITLE_SIGN_IN_PAGE_ELEMENT_XPATH)));
+        return driver.findElement(By.xpath(TITLE_ENTER_PASSWORD_ELEMENT_XPATH)).getAttribute("textContent");
     }
 
     public VerifyingIdentityPage enterPassword(MSAccount msAccount) {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.visibilityOfElementLocated
-                        (xpath(ENTER_PASSWORD_ELEMENT_XPATH)));
+                        (xpath(TITLE_ENTER_PASSWORD_ELEMENT_XPATH)));
         WebElement passwordPlaceholderElement = driver.findElement(xpath(PASSWORD_PLACEHOLDER_ELEMENT_XPATH));
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.elementToBeClickable(passwordPlaceholderElement)).click();
