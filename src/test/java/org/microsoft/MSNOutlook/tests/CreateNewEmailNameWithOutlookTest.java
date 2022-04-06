@@ -11,7 +11,6 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class CreateNewEmailNameWithOutlookTest extends RequiredConditions {
 
-    //    The test does work: passed 30 March 2022
     @Test(description = "Verifies a possibility of a new email's name creation with domain @outlook.")
     public void verifyThatOneCanCreateANewEmailNameWithOutlookDomain() {
         MSAccount account = AccountCompiler.withCredentialFromProperty();
