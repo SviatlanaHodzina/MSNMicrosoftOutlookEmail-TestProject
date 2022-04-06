@@ -17,8 +17,8 @@ public class RequiredConditions {
         driver = WebDriverConnector.getDriver(browser);
     }
 
-//    @AfterMethod(alwaysRun = true)
-//    public void stopDriver(){
-//        WebDriverConnector.closeDriver();
-//    }
+    @AfterMethod(alwaysRun = true)
+    public void stopDriver(){
+        WebDriverConnector.closeDriver();
+    }
 }
