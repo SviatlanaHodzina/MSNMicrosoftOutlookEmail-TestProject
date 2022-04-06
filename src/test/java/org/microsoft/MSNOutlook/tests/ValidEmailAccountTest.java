@@ -12,7 +12,6 @@ import java.util.ResourceBundle;
 
 public class ValidEmailAccountTest extends RequiredConditions {
 
-    // The test with properties from ResourceBundle does work, tested on existed email: 02 April 2022
     @Test(description = "Verifies if the input existing email account is valid")
     public void verifyThatTheInputEmailAccountIsValid() {
 
