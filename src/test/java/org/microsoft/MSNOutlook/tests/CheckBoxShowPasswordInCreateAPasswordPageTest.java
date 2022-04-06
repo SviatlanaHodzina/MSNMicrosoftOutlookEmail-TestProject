@@ -9,19 +9,22 @@ import org.testng.annotations.Test;
 
 import static org.testng.AssertJUnit.assertTrue;
 
-public class CreatePasswordForNewEmailAccountTest extends RequiredConditions {
-    @Test(description = "Verifies a possibility of a password creation for a new email account with domain @outlook. ")
-    public void verifyThatOneCanInputPasswordForANewEmailNameCreatedWithOutlookDomain() {
+public class CheckBoxShowPasswordInCreateAPasswordPageTest extends RequiredConditions {
+
+    @Test(description = "Verifies if the checkbox 'Show password' is available to be selected")
+    public void verifyThatCheckBoxShowPasswordIsAvailable() {
         MSAccount account = AccountCompiler.withCredentialFromProperty();
+
         new OutlookLiveComPage()
                 .openPage()
                 .signIn();
         new LogInPage().goToCreateAccountPage()
                 .signUp(account);
-        boolean profileFormOfProfilePageIsDisplayed = new CreateAPasswordPage()
-                .createAPassword(account).profileNamePaneIsDisplayed();
-        String errorPasswordMessage = "Error password message is displayed";
+        boolean showPasswordCheckBoxIsSelected = new CreateAPasswordPage()
+                .enterThePassword(account).showPasswordCheckBoxIsSelected();
 
-        assertTrue(errorPasswordMessage,profileFormOfProfilePageIsDisplayed );
+        String alertMessageIfTestFails = "'Show password' checkbox is not available";
+
+        assertTrue(alertMessageIfTestFails, showPasswordCheckBoxIsSelected);
     }
 }

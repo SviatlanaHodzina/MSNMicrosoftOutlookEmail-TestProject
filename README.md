@@ -8,6 +8,7 @@ Running tests with one single browser chrome:
 
 mvn -Dbrowser=chrome -Denvironment=dev -Dsurefire.suiteXmlFiles=src\test\resources\testng-smoke.xml clean test
 
+// this test case should be changed after creating new account for test purpose
 mvn -Dbrowser=chrome -Denvironment=dev -Dsurefire.suiteXmlFiles=src\test\resources\testng-nosmoking1.xml clean test
 
 mvn -Dbrowser=chrome -Denvironment=stage -Dsurefire.suiteXmlFiles=src\test\resources\testng-nosmoking2.xml clean test

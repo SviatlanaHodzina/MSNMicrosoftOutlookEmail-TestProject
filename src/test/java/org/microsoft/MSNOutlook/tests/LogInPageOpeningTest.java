@@ -10,7 +10,6 @@ import java.util.ResourceBundle;
 
 public class LogInPageOpeningTest extends RequiredConditions {
 
-    //    The test with properties from ResourceBundle does work, tested on existed email: 02 April 2022
     @Test(description = "Verifies if LogInPage can be opened for signing in")
     public void verifyIfLogInPageCanBeOpened() {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("message", Locale.US);
