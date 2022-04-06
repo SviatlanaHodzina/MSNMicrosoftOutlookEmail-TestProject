@@ -21,8 +21,11 @@ public class CreateAPasswordPage extends AbstractPage {
     private final String CREATE_PASSWORD_PAGE_CONTENT_ELEMENT_XPATH = "//div[@id='pageContent']";
     private final String ENTER_THE_PASSWORD_MESSAGE_ELEMENT_XPATH = "//div[@id='PasswordDesc']";
     private final String PASSWORD_PLACEHOLDER_MESSAGE_ELEMENT_XPATH = "//input[@id='PasswordInput']";
+    private final String PASSWORD_DISPLAYED_IN_PLACEHOLDER_ELEMENT_XPATH = "//input[@id='PasswordText']";
     private final String PASSWORD_ERROR_MESSAGE_ELEMENT_XPATH = "//*[@id='PasswordError']";
     private final String AVAILABLE_EMAIL_ACCOUNT_ELEMENT_XPATH = "//div[@id='maincontent']";
+    private final String PASSWORD_CHECKBOX_ELEMENT_XPATH = "//*[@id='ShowHidePasswordCheckbox']";
+    private final String EMAIL_INFO_CHECKBOX_ELEMENT_XPATH = "//*[@id='iOptinEmail']";
     private final String NEXT_BUTTON_ELEMENT_XPATH = "//input[@id='iSignupAction']";
 
     @FindBy(how = How.XPATH, using = "//div[@id='CredentialsPageTitle']")
@@ -58,6 +61,17 @@ public class CreateAPasswordPage extends AbstractPage {
         return new ProfileNamePage();
     }
 
+    public CreateAPasswordPage enterThePassword(MSAccount msAccount) {
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.invisibilityOf(createAccountTitleElement));
+        WebElement passwordPlaceholder = driver.findElement(By.xpath(PASSWORD_PLACEHOLDER_MESSAGE_ELEMENT_XPATH));
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.elementToBeClickable(passwordPlaceholder)).click();
+        passwordPlaceholder.sendKeys(msAccount.getPassword());
+        logger.info("The created password is entered");
+        return this;
+    }
+
     public boolean errorPasswordMessageIsDisplayed(MSAccount msAccount) {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.invisibilityOf(createAccountTitleElement));
@@ -81,6 +95,28 @@ public class CreateAPasswordPage extends AbstractPage {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.invisibilityOf(createAccountTitleElement));
         return driver.findElement(By.xpath(ENTER_THE_PASSWORD_MESSAGE_ELEMENT_XPATH)).isDisplayed();
+    }
+
+    public boolean showPasswordCheckBoxIsSelected() {
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.invisibilityOf(createAccountTitleElement));
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.elementToBeClickable(By.xpath(PASSWORD_CHECKBOX_ELEMENT_XPATH))).click();
+        return driver.findElement(By.xpath(PASSWORD_CHECKBOX_ELEMENT_XPATH)).isSelected();
+    }
+
+    public String getPasswordDisplayedInPlaceholder() {
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.invisibilityOf(createAccountTitleElement));
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.elementToBeClickable(By.xpath(PASSWORD_CHECKBOX_ELEMENT_XPATH))).click();
+        return driver.findElement(By.xpath(PASSWORD_DISPLAYED_IN_PLACEHOLDER_ELEMENT_XPATH)).getAttribute("value");
+    }
+
+    public boolean emailInfoCheckBoxIsSelected() {
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.invisibilityOf(createAccountTitleElement));
+        return driver.findElement(By.xpath(EMAIL_INFO_CHECKBOX_ELEMENT_XPATH)).isSelected();
     }
 
     public String getEnterThePasswordMessage() {
