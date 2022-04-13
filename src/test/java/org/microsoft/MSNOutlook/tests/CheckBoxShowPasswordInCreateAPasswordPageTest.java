@@ -4,7 +4,7 @@ import org.microsoft.MSNOutlook.model.MSAccount;
 import org.microsoft.MSNOutlook.pages.CreateAPasswordPage;
 import org.microsoft.MSNOutlook.pages.LogInPage;
 import org.microsoft.MSNOutlook.pages.OutlookLiveComPage;
-import org.microsoft.MSNOutlook.service.AccountCompiler;
+import org.microsoft.MSNOutlook.tests.service.AccountCompiler;
 import org.testng.annotations.Test;
 
 import static org.testng.AssertJUnit.assertTrue;
