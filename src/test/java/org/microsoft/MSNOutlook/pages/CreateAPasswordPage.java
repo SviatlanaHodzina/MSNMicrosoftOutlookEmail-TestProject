@@ -139,11 +139,19 @@ public class CreateAPasswordPage extends AbstractPage {
         return driver.findElement(By.xpath(PASSWORD_PLACEHOLDER_MESSAGE_ELEMENT_XPATH)).getAttribute("Placeholder");
     }
 
-    public MicrosoftServicesAgreementPage goToReadMicrosoftServicesAgreement() {
+    public MicrosoftServicesAgreementPage readMicrosoftServicesAgreement() {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.elementToBeClickable
                         (By.xpath(String.format(MICROSOFT_SERVICES_AGREEMENT_LINK_IN_LIGHTBOX_ELEMENT_XPATH,
                                 MICROSOFT_SERVICES_AGREEMENT_LINK)))).click();
+        return new MicrosoftServicesAgreementPage();
+    }
+
+    public MicrosoftServicesAgreementPage readPrivacyAndCookiesStatement() {
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.elementToBeClickable
+                        (By.xpath(String.format(PRIVACY_AND_COOKIES_STATEMENT_LINK_IN_LIGHTBOX_ELEMENT_XPATH,
+                                PRIVACY_AND_COOKIES_STATEMENT_LINK)))).click();
         return new MicrosoftServicesAgreementPage();
     }
 }
