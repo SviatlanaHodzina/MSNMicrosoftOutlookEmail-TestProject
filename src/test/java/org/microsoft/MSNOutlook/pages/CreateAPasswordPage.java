@@ -27,6 +27,12 @@ public class CreateAPasswordPage extends AbstractPage {
     private final String PASSWORD_CHECKBOX_ELEMENT_XPATH = "//*[@id='ShowHidePasswordCheckbox']";
     private final String EMAIL_INFO_CHECKBOX_ELEMENT_XPATH = "//*[@id='iOptinEmail']";
     private final String NEXT_BUTTON_ELEMENT_XPATH = "//input[@id='iSignupAction']";
+    private final String MICROSOFT_SERVICES_AGREEMENT_LINK_IN_LIGHTBOX_ELEMENT_XPATH = "//div[@id='ftrText']//a[@href='%s']";
+    private final String PRIVACY_AND_COOKIES_STATEMENT_LINK_IN_LIGHTBOX_ELEMENT_XPATH = "//div[@id='ftrText']//a[@href='%s']";
+    private final String MICROSOFT_SERVICES_AGREEMENT_LINK_FOOTER_ELEMENT_XPATH = "//div[@id='footer']//a[@href='%s']";
+    private final String PRIVACY_AND_COOKIES_STATEMENT_LINK_FOOTER_ELEMENT_XPATH = "//div[@id='footer']//a[@href='%s']";
+    private final String MICROSOFT_SERVICES_AGREEMENT_LINK = "https://www.microsoft.com/en-gb/servicesagreement/default.aspx";
+    private final String PRIVACY_AND_COOKIES_STATEMENT_LINK = "https://go.microsoft.com/fwlink/?LinkID=521839";
 
     @FindBy(how = How.XPATH, using = "//div[@id='CredentialsPageTitle']")
     private WebElement createAccountTitleElement;
@@ -116,6 +122,8 @@ public class CreateAPasswordPage extends AbstractPage {
     public boolean emailInfoCheckBoxIsSelected() {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.invisibilityOf(createAccountTitleElement));
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.elementToBeClickable(By.xpath(EMAIL_INFO_CHECKBOX_ELEMENT_XPATH))).click();
         return driver.findElement(By.xpath(EMAIL_INFO_CHECKBOX_ELEMENT_XPATH)).isSelected();
     }
 
@@ -131,7 +139,19 @@ public class CreateAPasswordPage extends AbstractPage {
         return driver.findElement(By.xpath(PASSWORD_PLACEHOLDER_MESSAGE_ELEMENT_XPATH)).getAttribute("Placeholder");
     }
 
-    public boolean availableEmailAccountIsDisplayed() {
-        return driver.findElement(By.xpath(AVAILABLE_EMAIL_ACCOUNT_ELEMENT_XPATH)).isDisplayed();
+    public MicrosoftServicesAgreementPage readMicrosoftServicesAgreement() {
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.elementToBeClickable
+                        (By.xpath(String.format(MICROSOFT_SERVICES_AGREEMENT_LINK_IN_LIGHTBOX_ELEMENT_XPATH,
+                                MICROSOFT_SERVICES_AGREEMENT_LINK)))).click();
+        return new MicrosoftServicesAgreementPage();
+    }
+
+    public MicrosoftServicesAgreementPage readPrivacyAndCookiesStatement() {
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.elementToBeClickable
+                        (By.xpath(String.format(PRIVACY_AND_COOKIES_STATEMENT_LINK_IN_LIGHTBOX_ELEMENT_XPATH,
+                                PRIVACY_AND_COOKIES_STATEMENT_LINK)))).click();
+        return new MicrosoftServicesAgreementPage();
     }
 }
