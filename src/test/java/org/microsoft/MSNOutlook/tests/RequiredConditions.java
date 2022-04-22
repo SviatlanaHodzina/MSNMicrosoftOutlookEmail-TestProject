@@ -13,8 +13,8 @@ public class RequiredConditions {
 
     @BeforeMethod()
     @Parameters("browser")
-    public void setUp(String browser) {
-        driver = WebDriverConnector.getDriver(browser);
+    public void setUp(String browser) throws MalformedURLException {
+        driver = WebDriverConnector.getDriver("browser");
     }
 
     @AfterMethod(alwaysRun = true)
