@@ -11,4 +11,5 @@ mvn -Dbrowser=chrome -Denvironment=dev -Dsurefire.suiteXmlFiles=src\test\resourc
 
 mvn -Dbrowser=chrome -Denvironment=dev -Dsurefire.suiteXmlFiles=src\test\resources\testng-nosmoking1.xml clean test
 
-testng-smoke.xml - replace with the corresponding .xml suite file
+For running other tests replace browsername chrome with the corresponding name: msedge or firefox, environment dev - replace with qa or stage and 
+testng-smoke.xml with the corresponding .xml suite name file
