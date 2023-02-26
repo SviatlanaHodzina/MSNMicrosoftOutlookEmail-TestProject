@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="nosmoking12" verbose="1">
+    <test name="CompletingProfileBirthdayPageWithCountryTest">
+        <classes>
+            <class name="org.microsoft.MSNOutlook.tests.CompletingProfileBirthdayPageWithCountryTest"/>
+        </classes>
+    </test>
+</suite>

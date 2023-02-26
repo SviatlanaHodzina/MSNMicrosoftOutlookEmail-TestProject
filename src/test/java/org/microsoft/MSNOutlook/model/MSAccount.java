@@ -10,9 +10,14 @@ public class MSAccount {
     private String phoneNumber;
     private String domain;
     private String password;
+    private String country;
+    private String dayOfBirth;
+    private String monthOfBirth;
+    private String yearOfBirth;
 
-    public MSAccount(String firstName, String surname, String emailName,
-                     String skypeName, String phoneNumber, String domain, String password) {
+    public MSAccount(String firstName, String surname, String emailName, String skypeName, String phoneNumber,
+                     String domain, String password, String country, String dayOfBirth, String monthOfBirth,
+                     String yearOfBirth) {
 
         this.firstName = firstName;
         this.surname = surname;
@@ -21,6 +26,10 @@ public class MSAccount {
         this.phoneNumber = phoneNumber;
         this.domain = domain;
         this.password = password;
+        this.country = country;
+        this.dayOfBirth = dayOfBirth;
+        this.monthOfBirth = monthOfBirth;
+        this.yearOfBirth = yearOfBirth;
     }
 
     public String getFirstName() {
@@ -50,6 +59,26 @@ public class MSAccount {
         return password;
     }
 
+    public String getSkypeName() {
+        return skypeName;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getDayOfBirth() {
+        return dayOfBirth;
+    }
+
+    public String getMonthOfBirth() {
+        return monthOfBirth;
+    }
+
+    public String getYearOfBirth() {
+        return yearOfBirth;
+    }
+
     @Override
     public String toString() {
         return "MSAccount{" +
@@ -60,6 +89,10 @@ public class MSAccount {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", domain='" + domain + '\'' +
                 ", password='" + password + '\'' +
+                ", country='" + country + '\'' +
+                ", dayOfBirth='" + dayOfBirth + '\'' +
+                ", monthOfBirth='" + monthOfBirth + '\'' +
+                ", yearOfBirth='" + yearOfBirth + '\'' +
                 '}';
     }
 
@@ -71,11 +104,14 @@ public class MSAccount {
         return Objects.equals(firstName, msAccount.firstName) && Objects.equals(surname, msAccount.surname)
                 && Objects.equals(emailName, msAccount.emailName) && Objects.equals(skypeName, msAccount.skypeName)
                 && Objects.equals(phoneNumber, msAccount.phoneNumber) && Objects.equals(domain, msAccount.domain)
-                && Objects.equals(password, msAccount.password);
+                && Objects.equals(password, msAccount.password) && Objects.equals(country, msAccount.country)
+                && Objects.equals(dayOfBirth, msAccount.dayOfBirth) && Objects.equals(monthOfBirth, msAccount.monthOfBirth)
+                && Objects.equals(yearOfBirth, msAccount.yearOfBirth);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, surname, emailName, skypeName, phoneNumber, domain, password);
+        return Objects.hash(firstName, surname, emailName, skypeName, phoneNumber, domain, password,
+                country, dayOfBirth, monthOfBirth, yearOfBirth);
     }
 }

@@ -1,15 +1,23 @@
 package org.microsoft.MSNOutlook.driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.Parameters;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class WebDriverConnector {
     private static WebDriver driver;
 
-    public static synchronized WebDriver getDriver(String browser) {
+    @Parameters("browser")
+    public static synchronized WebDriver getDriver(String browser) throws MalformedURLException {
         if (driver == null) {
             switch (System.getProperty("browser")) {
                 case "firefox": {
@@ -21,7 +29,7 @@ public class WebDriverConnector {
                     driver = new EdgeDriver();
                 }
                 case "chrome": {
-                    WebDriverManager.chromedriver().driverVersion("99.0.4844.51").setup();
+                    WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                 }
             }
