@@ -1,3 +1,5 @@
+# MSNOutlookEmail-TestProject 
+
 The Project is under revisal due to Microsoft changes
 
 //Test cases represented in the project verify Microsoft Email Service's functionality (https://outlook.live.com/owa/):
