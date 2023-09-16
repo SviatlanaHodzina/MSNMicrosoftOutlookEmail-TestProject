@@ -15,6 +15,7 @@ https://www.microsoft.com/en-us
 Cross browser testing will be added later.
 
 > Creation new accounts
+
 > Sign in existing accounts
 
 // Running tests with Firefox via cmd:
