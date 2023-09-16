@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="nosmoking20Outlook" verbose="1">
+    <test name="SignInMSOutlookLiveAccountViaCorrectEmailTest">
+        <classes>
+            <class name="org.microsoft.MSNOutlook.tests.OutlookPageExistingEmailTests.SignInMSOutlookLiveAccountViaCorrectEmailTest"/>
+        </classes>
+    </test>
+</suite>

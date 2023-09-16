@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="nosmoking19Outlook" verbose="1">
+    <test name="EmailInfoCheckBoxIsSelectedByDefaultInCreateAPasswordPageTest">
+        <classes>
+            <class name="org.microsoft.MSNOutlook.tests.OutlookPageCreateNewEmailTests.EmailInfoCheckBoxIsSelectedByDefaultInCreateAPasswordPageTest"/>
+        </classes>
+    </test>
+</suite>

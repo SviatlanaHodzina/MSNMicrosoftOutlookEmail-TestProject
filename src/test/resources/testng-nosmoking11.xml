@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="nosmoking11" verbose="1">
+    <test name="CompletingProfileNameFormTest">
+        <classes>
+            <class name="org.microsoft.MSNOutlook.tests.OutlookPageProfileBirthdayTests.CompletingProfileBirthdayPageWithMonthOfBirthTest.CompletingProfileNameFormTest"/>
+        </classes>
+    </test>
+</suite>
