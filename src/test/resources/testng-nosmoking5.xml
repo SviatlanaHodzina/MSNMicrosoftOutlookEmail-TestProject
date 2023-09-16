@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-
-<suite name="nosmoking5" verbose="1">
-    <test name="MicrosoftLogoDisplayOnLogInPageTest">
-        <classes>
-            <class name="org.microsoft.MSNOutlook.tests.MicrosoftLogoDisplayOnLogInPageTest"/>
-        </classes>
-    </test>
-</suite>

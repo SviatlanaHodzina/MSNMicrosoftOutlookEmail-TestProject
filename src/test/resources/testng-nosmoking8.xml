@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-
-<suite name="nosmoking8" verbose="1">
-    <test name="EmailInfoCheckBoxInCreateAPasswordPageTest">
-        <classes>
-            <class name="org.microsoft.MSNOutlook.tests.EmailInfoCheckBoxInCreateAPasswordPageTest"/>
-        </classes>
-    </test>
-</suite>
