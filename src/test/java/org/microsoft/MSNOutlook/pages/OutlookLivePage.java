@@ -13,15 +13,15 @@ import java.net.MalformedURLException;
 import java.time.Duration;
 
 import static org.openqa.selenium.By.xpath;
+
 // Due to recent developer's changes this page was edited 14 September 2023
+// OutlookLivePage is integrated into main Microsoft site and the method, opening Outlook, should be integrated into MicrosoftPage
 public class OutlookLivePage extends AbstractPage {
 
     private final Logger logger = LogManager.getRootLogger();
 
     final String OUTLOOK_LIVE_COM_PAGE = "https://www.microsoft.com/en-us/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook";
     public static final String MAIN_PAGE_MICROSOFT_CONTENT_ELEMENT_XPATH = "//body[@class='page basicpage']";
-//    public final String MAIN_PAGE_CONTENT_ELEMENT_XPATH = "//html/body/header[@class='masthead']";
-//    public final String SIGN_IN_BUTTON_ELEMENT_XPATH = "//div[@class='masthead-shell']//a[contains(text(),'%s')]";
     public static final String SIGN_IN_OUTLOOK_ACCOUNT_ELEMENT_XPATH = "//div[@class='card-body p-4 p-md-5']//a[@class='btn btn-primary   ']";// gaps in the attribute's value design are redundant
     public final String CREATE_FREE_ACCOUNT_BUTTON_ELEMENT_XPATH = "//a[contains(@class,'btn btn-outline-primary-white   ') and contains(@aria-label,'Create a free Microsoft Outlook account')]";
 
