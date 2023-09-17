@@ -8,10 +8,13 @@ Testing is in the process
 
 // Test cases represented in the project verify Microsoft Email Service's functionality of
 Outlook and Microsoft:
-P.S. https://outlook.live.com/owa/ is modified and Outlook is integrated into main microsoft page
+P.S. 
+https://outlook.live.com/owa/ is modified and Outlook is integrated into main microsoft page
 https://www.microsoft.com/en-us/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook
 https://www.microsoft.com/en-us
- 
+
+OutlookLive is integrated into main Microsoft site. All methods of OutlookLivePage are to be integrated into MicrosoftPage, and tests  are to be revised.
+
 Cross browser testing will be added later.
 
 > Creation new accounts
