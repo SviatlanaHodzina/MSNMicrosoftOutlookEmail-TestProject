@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="nosmoking18" verbose="1">
+    <test name="SignOutOnNoAnswerToOfferToStaySignInTest">
+        <classes>
+            <class name="org.microsoft.MSNOutlook.tests.MicrosoftExistingEmailPageTests.SignOutOnNoAnswerToOfferToStaySignInTest"/>
+        </classes>
+    </test>
+</suite>

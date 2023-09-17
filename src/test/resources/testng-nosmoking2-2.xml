@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="nosmoking2-2" verbose="1">
-    <test name="NotValidInputEmailAccountAlertTextTest">
+    <test name="IncorrectInputEmailAccountAlertTextTest">
         <classes>
-            <class name="org.microsoft.MSNOutlook.tests.NotValidInputEmailAccountAlertTextTest"/>
+            <class name="org.microsoft.MSNOutlook.tests.MicrosoftExistingEmailPageTests.IncorrectInputEmailAccountAlertTextTest"/>
         </classes>
     </test>
 </suite>

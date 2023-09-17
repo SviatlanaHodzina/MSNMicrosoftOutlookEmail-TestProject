@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.net.MalformedURLException;
 import java.time.Duration;
 
 public class ProfileNamePage extends AbstractPage {
@@ -24,7 +25,7 @@ public class ProfileNamePage extends AbstractPage {
     private final String NEXT_BUTTON_PROFILEPAGE_ELEMENT_XPATH = "//*[@id='iSignupAction']";
     private final String PASSWORD_PLACEHOLDER_MESSAGE_ELEMENT_XPATH = "//input[@id='PasswordInput']";
 
-    public ProfileNamePage() {
+    public ProfileNamePage() throws MalformedURLException {
         super();
         PageFactory.initElements(this.driver, this);
     }
@@ -72,7 +73,7 @@ public class ProfileNamePage extends AbstractPage {
         return this;
     }
 
-    public ProfileBirthdayPage completeProfileNameForm(MSAccount msAccount) {
+    public ProfileBirthdayPage completeProfileNameForm(MSAccount msAccount) throws MalformedURLException {
         enterYourFirstName(msAccount.getFirstName());
         enterYourSurname(msAccount.getSurname());
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))

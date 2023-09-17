@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="nosmoking13" verbose="1">
-    <test name="CompletingProfileBirthdayPageWithDayOfBirthTestt">
+    <test name="CompletingProfileBirthdayPageWithDayOfBirthTest">
         <classes>
-            <class name="org.microsoft.MSNOutlook.tests.CompletingProfileBirthdayPageWithDayOfBirthTest"/>
+            <class name="org.microsoft.MSNOutlook.tests.OutlookPageProfileBirthdayTests.CompletingProfileBirthdayPageWithDayOfBirthTest"/>
         </classes>
     </test>
 </suite>

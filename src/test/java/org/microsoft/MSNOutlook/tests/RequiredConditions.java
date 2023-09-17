@@ -7,17 +7,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 
+import java.net.MalformedURLException;
+
 @Listeners({TestListener.class})
 public class RequiredConditions {
-    public static WebDriver driver;
+    public WebDriver driver;
 
-    @BeforeMethod()
     @Parameters("browser")
     public void setUp(String browser) throws MalformedURLException {
         driver = WebDriverConnector.getDriver("browser");
     }
-
-    @AfterMethod(alwaysRun = true)
     public void stopDriver(){
         WebDriverConnector.closeDriver();
     }

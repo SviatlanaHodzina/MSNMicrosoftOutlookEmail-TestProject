@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.net.MalformedURLException;
 import java.time.Duration;
 
 public class MicrosoftServicesAgreementPage extends AbstractPage {
@@ -15,7 +16,7 @@ public class MicrosoftServicesAgreementPage extends AbstractPage {
 
     private final String MICROSOFT_SERVICES_AGREEMENT_PAGE_CONTENT_ELEMENT_XPATH = "/html/body";
 
-    public MicrosoftServicesAgreementPage() {
+    public MicrosoftServicesAgreementPage() throws MalformedURLException {
         super();
         PageFactory.initElements(this.driver, this);
     }

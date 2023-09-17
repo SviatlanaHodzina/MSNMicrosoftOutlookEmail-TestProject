@@ -3,7 +3,7 @@
 <suite name="nosmoking5" verbose="1">
     <test name="MicrosoftLogoDisplayOnLogInPageTest">
         <classes>
-            <class name="org.microsoft.MSNOutlook.tests.MicrosoftLogoDisplayOnLogInPageTest"/>
+            <class name="org.microsoft.MSNOutlook.tests.OutlookPageLinksAndLogoTests.MicrosoftLogoDisplayOnLogInPageTest"/>
         </classes>
     </test>
 </suite>

@@ -3,7 +3,7 @@
 <suite name="nosmoking6" verbose="1">
     <test name="CheckBoxShowPasswordInCreateAPasswordPageTest">
         <classes>
-            <class name="org.microsoft.MSNOutlook.tests.CheckBoxShowPasswordInCreateAPasswordPageTest"/>
+            <class name="org.microsoft.MSNOutlook.tests.OutlookPageCreateNewEmailTests.CheckBoxShowPasswordInCreateAPasswordPageTest"/>
         </classes>
     </test>
 </suite>

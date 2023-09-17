@@ -3,7 +3,7 @@
 <suite name="nosmoking10" verbose="1">
     <test name="PrivacyAndCookiesStatementLinkInCreatingPasswordPageTest">
         <classes>
-            <class name="org.microsoft.MSNOutlook.tests.PrivacyAndCookiesStatementLinkInCreatingPasswordPageTest"/>
+            <class name="org.microsoft.MSNOutlook.tests.OutlookPageLinksAndLogoTests.PrivacyAndCookiesStatementLinkInCreatingPasswordPageTest"/>
         </classes>
     </test>
 </suite>

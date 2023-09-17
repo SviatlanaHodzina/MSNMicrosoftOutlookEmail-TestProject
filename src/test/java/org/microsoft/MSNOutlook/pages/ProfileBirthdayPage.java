@@ -17,13 +17,12 @@ import java.time.Duration;
 import java.util.List;
 
 import static java.time.Duration.ofSeconds;
-import static org.microsoft.MSNOutlook.tests.RequiredConditions.driver;
-import static org.openqa.selenium.By.xpath;
+
 
 public class ProfileBirthdayPage extends AbstractPage {
     Logger logger = LogManager.getRootLogger();
 
-    private final String PROFILE_BIRTHDAY_PAGE_CONTENT_ELEMENT_XPATH = "//*[@id='inner']";
+    public static final String PROFILE_BIRTHDAY_PAGE_CONTENT_ELEMENT_XPATH = "//div[@id='BirthDateCountryAccrualInputPane']";
     private final String PROFILE_BIRTHDAY_PAGE_TITLE_ELEMENT_XPATH = "//*[@id='iPageTitle']";
     private final String PROFILE_NAME_PANE_PAGE_ELEMENT_XPATH = "//*[@id='ProfileAccrual']";
     private final String MENU_BUTTON_COUNTRY_OR_REGION_ELEMENT_XPATH = "//*[@name='Country']";

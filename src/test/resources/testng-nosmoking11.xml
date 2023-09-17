@@ -3,7 +3,7 @@
 <suite name="nosmoking11" verbose="1">
     <test name="CompletingProfileNameFormTest">
         <classes>
-            <class name="org.microsoft.MSNOutlook.tests.CompletingProfileNameFormTest"/>
+            <class name="org.microsoft.MSNOutlook.tests.OutlookPageProfileBirthdayTests.CompletingProfileBirthdayPageWithMonthOfBirthTest.CompletingProfileNameFormTest"/>
         </classes>
     </test>
 </suite>

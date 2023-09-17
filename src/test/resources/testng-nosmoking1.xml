@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="nosmoking1" verbose="1">
-    <test name="ValidEmailAccountTest">
+    <test name="CorrectOutlookLiveAccountEmailTest">
         <classes>
-            <class name="org.microsoft.MSNOutlook.tests.ValidEmailAccountTest"/>
+            <class name="org.microsoft.MSNOutlook.tests.OutlookPageExistingEmailTests.CorrectOutlookLiveAccountEmailTest"/>
         </classes>
     </test>
 </suite>

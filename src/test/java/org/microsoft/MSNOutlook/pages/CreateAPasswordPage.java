@@ -12,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class CreateAPasswordPage extends AbstractPage {
     @FindBy(how = How.XPATH, using = "//div[@id='CredentialsPageTitle']")
     private WebElement createAccountTitleElement;
 
-    public CreateAPasswordPage() {
+    public CreateAPasswordPage() throws MalformedURLException {
         super();
         PageFactory.initElements(this.driver, this);
     }
@@ -50,11 +51,7 @@ public class CreateAPasswordPage extends AbstractPage {
         return this;
     }
 
-    public boolean passwordPageContentIsDisplayed() {
-        return driver.findElement(By.xpath(CREATE_PASSWORD_PAGE_CONTENT_ELEMENT_XPATH)).isDisplayed();
-    }
-
-    public ProfileNamePage createAPassword(MSAccount msAccount) {
+    public ProfileNamePage createAPassword(MSAccount msAccount) throws MalformedURLException {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.invisibilityOf(createAccountTitleElement));
         WebElement passwordPlaceholder = driver.findElement(By.xpath(PASSWORD_PLACEHOLDER_MESSAGE_ELEMENT_XPATH));
@@ -67,7 +64,7 @@ public class CreateAPasswordPage extends AbstractPage {
         return new ProfileNamePage();
     }
 
-    public CreateAPasswordPage enterThePassword(MSAccount msAccount) {
+    public CreateAPasswordPage enterThePasswordInCreateAPasswordPage(MSAccount msAccount) {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.invisibilityOf(createAccountTitleElement));
         WebElement passwordPlaceholder = driver.findElement(By.xpath(PASSWORD_PLACEHOLDER_MESSAGE_ELEMENT_XPATH));
@@ -119,11 +116,18 @@ public class CreateAPasswordPage extends AbstractPage {
         return driver.findElement(By.xpath(PASSWORD_DISPLAYED_IN_PLACEHOLDER_ELEMENT_XPATH)).getAttribute("value");
     }
 
-    public boolean emailInfoCheckBoxIsSelected() {
+    public void selectCheckBoxToGetInfoAboutMicrosoft() {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.invisibilityOf(createAccountTitleElement));
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(EMAIL_INFO_CHECKBOX_ELEMENT_XPATH))).click();
+    }
+
+    public boolean emailInfoCheckBoxIsSelected() {
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.invisibilityOf(createAccountTitleElement));
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.elementToBeClickable(By.xpath(EMAIL_INFO_CHECKBOX_ELEMENT_XPATH)));
         return driver.findElement(By.xpath(EMAIL_INFO_CHECKBOX_ELEMENT_XPATH)).isSelected();
     }
 
@@ -139,7 +143,7 @@ public class CreateAPasswordPage extends AbstractPage {
         return driver.findElement(By.xpath(PASSWORD_PLACEHOLDER_MESSAGE_ELEMENT_XPATH)).getAttribute("Placeholder");
     }
 
-    public MicrosoftServicesAgreementPage readMicrosoftServicesAgreement() {
+    public MicrosoftServicesAgreementPage readMicrosoftServicesAgreement() throws MalformedURLException {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.elementToBeClickable
                         (By.xpath(String.format(MICROSOFT_SERVICES_AGREEMENT_LINK_IN_LIGHTBOX_ELEMENT_XPATH,
@@ -147,7 +151,7 @@ public class CreateAPasswordPage extends AbstractPage {
         return new MicrosoftServicesAgreementPage();
     }
 
-    public MicrosoftServicesAgreementPage readPrivacyAndCookiesStatement() {
+    public MicrosoftServicesAgreementPage readPrivacyAndCookiesStatement() throws MalformedURLException {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.elementToBeClickable
                         (By.xpath(String.format(PRIVACY_AND_COOKIES_STATEMENT_LINK_IN_LIGHTBOX_ELEMENT_XPATH,
