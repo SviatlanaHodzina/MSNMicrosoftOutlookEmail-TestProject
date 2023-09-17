@@ -8,7 +8,7 @@ Testing is in the process
 
 // Test cases represented in the project verify Microsoft Email Service's functionality of
 Outlook and Microsoft:
-P.S. https://outlook.live.com/owa/ modified into
+P.S. https://outlook.live.com/owa/ is modified and Outlook is integrated into main microsoft page
 https://www.microsoft.com/en-us/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook
 https://www.microsoft.com/en-us
  
